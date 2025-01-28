@@ -1,22 +1,81 @@
-# Java-React Example
+# Demo Project: Server Setup and Application Deployment on DigitalOcean
 
-An example of how to use JS frontend to consume an endpoint written in Java.
+## Project Overview
+This project demonstrates my ability to set up and configure a server on **DigitalOcean**, implement best practices for server security, and deploy a Java application using **Gradle**. The goal was to create a robust environment to host and run applications efficiently.
 
-## Frontend technologies
+---
 
-- [React](https://facebook.github.io/react/) - UI Library
-- [Redux](http://redux.js.org/) - State container
+## Technologies Used
+- **DigitalOcean**: Cloud platform for deploying and managing virtual private servers (Droplets).
+- **Linux**: Operating system for server configuration and application hosting.
+- **Java**: Programming language for the application.
+- **Gradle**: Build automation tool for Java applications.
 
-## Additional information
+---
 
-This project is a part of a [presentation](https://docs.google.com/presentation/d/1-yZhsM43cyWWDVn6EUtK_wc39FAv-19_jwsKXlTe2o8/edit?usp=sharing)
+## Project Description
 
-Related projects:
+### 1. **Server Setup on DigitalOcean**
+- Provisioned a new Droplet on DigitalOcean with a Linux operating system.
+- Configured Droplet settings, including SSH key-based authentication for secure access.
 
-- [react-intro](https://github.com/mendlik/react-intro) - Introduction to react and redux.
-- [java-webpack-example](https://github.com/mendlik/java-webpack-example) - Advanced example showing how to use a module bundler in  a Java project.
+### 2. **Security Configuration**
+- Created and configured a new Linux user with limited privileges (non-root user).
+- Set up a strong password policy and enforced security best practices:
+  - Disabled root login.
+  - Configured a firewall (using `ufw`) to allow only necessary ports (e.g., SSH and application-specific ports).
+  - Enabled automatic security updates.
 
-Tip: [How to enable LiveReload in IntelliJ](http://stackoverflow.com/a/35895848/2284884)
+### 3. **Application Deployment**
+- Installed Java runtime and Gradle on the server to support the Java application.
+- Cloned the application source code from the repository.
+- Built the application using Gradle (`gradle build`).
+- Deployed the built application to run on the server:
+  - Configured the application to run in the background as a service.
+  - Verified successful deployment by testing application endpoints.
 
-<hr/>
-Original project can be found here: https://github.com/pmendelski/java-react-example 
+---
+
+## Key Deliverables
+1. **DigitalOcean Droplet**:
+   - Securely set up and configured for application hosting.
+2. **Linux User Configuration**:
+   - Created a non-root user and applied security best practices.
+3. **Deployed Java Application**:
+   - Successfully built and deployed the Gradle application to the server.
+
+---
+
+## How to Reproduce This Setup
+
+### Prerequisites
+- A DigitalOcean account.
+- SSH key pair for secure server access.
+- Application source code compatible with Gradle.
+
+### Steps
+1. **Create a Droplet**:
+   - Log in to your DigitalOcean account and create a new Droplet with a Linux distribution (e.g., Ubuntu 22.04).
+
+2. **Set Up SSH Access**:
+   - Add your public SSH key to the Droplet for secure access.
+   - Connect to the Droplet using `ssh username@server_ip`.
+
+3. **Configure Server Security**:
+   - Create a new Linux user: `sudo adduser newuser`.
+   - Grant limited privileges to the user: `sudo usermod -aG sudo newuser`.
+   - Disable root login by editing the `/etc/ssh/sshd_config` file.
+   - Set up a firewall:
+     ```bash
+     sudo ufw allow OpenSSH
+     sudo ufw enable
+     ```
+
+4. **Install Java and Gradle**:
+   - Install Java: `sudo apt update && sudo apt install default-jdk`
+   - Install Gradle: Follow [official Gradle installation instructions](https://gradle.org/install/).
+
+5. **Deploy the Application**:
+   - Clone the application code: `git clone <repository_url>`.
+   - Navigate to the project directory and build: `gradle build`.
+   - Run the application using `java -jar` or configure it as a service.
