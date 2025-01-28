@@ -63,16 +63,10 @@ This project demonstrates my ability to set up and configure a server on **Digit
 3. **Configure Server Security**:
    - Create a new Linux user: `sudo adduser newuser`.
    - Grant limited privileges to the user: `sudo usermod -aG sudo newuser`.
-   - Disable root login by editing the `/etc/ssh/sshd_config` file.
-   - Set up a firewall:
-     ```bash
-     sudo ufw allow OpenSSH
-     sudo ufw enable
-     ```
+   - Set up a firewall
 
 4. **Install Java and Gradle**:
    - Install Java: `sudo apt update && sudo apt install default-jdk`
-   - Install Gradle: Follow [official Gradle installation instructions](https://gradle.org/install/).
 
 5. **Deploy the Application**:
    - Clone the application code: `git clone <repository_url>`.
