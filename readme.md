@@ -23,8 +23,7 @@ This project demonstrates my ability to set up and configure a server on **Digit
 - Created and configured a new Linux user with limited privileges (non-root user).
 - Set up a strong password policy and enforced security best practices:
   - Disabled root login.
-  - Configured a firewall (using `ufw`) to allow only necessary ports (e.g., SSH and application-specific ports).
-  - Enabled automatic security updates.
+  - Configured a firewall to allow only necessary ports (e.g., SSH and application-specific ports).
 
 ### 3. **Application Deployment**
 - Installed Java runtime and Gradle on the server to support the Java application.
